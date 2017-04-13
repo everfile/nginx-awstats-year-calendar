@@ -1,0 +1,38 @@
+
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="https://everfile.github.io/nginx-awstats-year-calendar/css/bootstrap-year-calendar.min.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="title" content="Bootstrap year calendar" />
+		<meta name="author" content="Paul DAVID-SIVELLE" />
+		<title>Awstats Year Calendar</title>
+	</head>
+	<body>
+		<div id="calendar"></div>
+
+		<script src="https://cdn.jsdelivr.net/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script charset="UTF-8" src="https://everfile.github.io/nginx-awstats-year-calendar/js/bootstrap-year-calendar-awstats.js"></script>
+
+		<script>
+			$(function() {
+				var currentYear = new Date().getFullYear();
+				var currentMonth = new Date().getMonth();
+				var currentDate = new Date().getDate();
+				var redDateTime = new Date(currentYear, currentMonth, currentDate).getTime();
+				$('#calendar').calendar({ 
+					customDayRenderer: function(element, date) {
+						if(date.getTime() == redDateTime) {
+							$(element).css('font-weight', 'bold');
+							$(element).css('font-size', '16px');
+							$(element).css('color', 'red');
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
