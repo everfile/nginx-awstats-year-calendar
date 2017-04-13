@@ -276,7 +276,7 @@
 							cellContent.addClass('day-content');
 							cellContent.text(currentDate.getDate());
 							cellContent.attr({
-								"href" : (currentDate.getFullYear()).slice(-2) + ("0" + (currentDate.getMonth() + 1)).slice(-2) + ("0" + currentDate.getDate()).slice(-2) + "/html/awstats.default.html",
+								"href" : (currentDate.getFullYear().toString()).slice(-2) + ("0" + (currentDate.getMonth() + 1)).slice(-2) + ("0" + currentDate.getDate()).slice(-2) + "/html/awstats.default.html",
 								"target" : "_blank"
 							});
 							cell.append(cellContent);
